@@ -3,11 +3,6 @@
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
     <appender name="rabbitmq" class="com.kharevich.component.RabbitMQAppender">
         <param name="identifier" value="identifier"/>
-        <param name="username" value="dlxydxgl" />
-        <param name="host" value="owl.rmq.cloudamqp.com"/>
-        <param name="port" value="5672"/>
-        <param name="password" value="SgdkW4FVgeF8YF1rA_edxYSWq3zQmoIO"/>
-        <param name="virtualHost" value="dlxydxgl"/>
         <param name="exchange" value="log4j-exchange"/>
         <param name="type" value="direct"/>
         <param name="durable" value="false"/>

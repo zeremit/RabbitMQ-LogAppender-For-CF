@@ -52,8 +52,7 @@ public class RabbitMQAppender extends AppenderSkeleton {
     private String host = "localhost";
     private int port = 5762;
 
-    @Value("#{systemEnvironment['username']}")
-    private String username;
+    private String username = "guest";
 
     private String password = "guest";
     private String virtualHost = "/";
@@ -120,11 +119,11 @@ public class RabbitMQAppender extends AppenderSkeleton {
      * Sets the ConnectionFactory parameters
      */
     private void setFactoryConfiguration() {
-        factory.setHost(this.host);
-        factory.setPort(this.port);
-        factory.setVirtualHost(this.virtualHost);
-        factory.setUsername(this.username);
-        factory.setPassword(this.password);
+        factory.setHost(System.getenv("host"));
+        factory.setPort(Integer.parseInt(System.getenv("port")));
+        factory.setVirtualHost(System.getenv("virtualhost"));
+        factory.setUsername(System.getenv("username"));
+        factory.setPassword(System.getenv("password"));
     }
 
     /**
@@ -344,7 +343,6 @@ public class RabbitMQAppender extends AppenderSkeleton {
      */
     private Connection createConnection() throws IOException, TimeoutException {
         setFactoryConfiguration();
-        System.out.println(username);
         if (this.connection == null || !this.connection.isOpen()) {
             this.connection = factory.newConnection();
         }
