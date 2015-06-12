@@ -1,0 +1,10 @@
+---
+applications:
+- name: rabbitmq2
+  memory: 512M
+  instances: 1
+  path: target/rabbitmq_log4j.war
+  env:
+     username: dlxydxgl
+  services:
+     - rabbitmq-spring
