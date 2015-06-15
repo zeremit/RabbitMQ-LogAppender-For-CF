@@ -17,19 +17,12 @@
         </layout>
     </appender>
 
-    <appender name="amqp"
-              class="com.altoros.appenders.SpringAppender">
-        <param name="virtualHost" value="dlxydxgl" />
-        <param name="username" value="dlxydxgl" />
-        <param name="password" value="SgdkW4FVgeF8YF1rA_edxYSWq3zQmoIO " />
+    <appender name="amqp" class="org.springframework.amqp.rabbit.log4j.AmqpAppender">
         <param name="ExchangeName" value="app.log4.spring" />
         <param name="ExchangeType" value="topic" />
         <param name="declareExchange" value="true" />
         <param name="RoutingKeyPattern" value="log.logsee" />
-        <param name="ApplicationId" value="main" />
-        <param name="contentType" value="text/plain" />
-        <param name="senderPoolSize" value="2" />
-        <param name="maxSenderRetries" value="30" />
+        <param name="ApplicationId" value="spring-travel" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%-5p %c{1} - %m%n" />
         </layout>
