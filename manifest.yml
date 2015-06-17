@@ -10,3 +10,7 @@ applications:
      virtualhost: virtualhost
      username: user
      password: password
+     log_service: rabbitmq-spring
+  services:
+     - rabbitmq-spring
+     - rabbitmq

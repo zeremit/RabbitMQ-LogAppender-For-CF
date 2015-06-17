@@ -16,21 +16,48 @@
             <param name="ConversionPattern" value="%-5p: %c - %m%n" />
         </layout>
     </appender>
+    <appender name="amqp-spring" class="com.kharevich.component.RabbitMQCFAppender">
+        <param name="identifier" value="identifier"/>
+        <param name="exchange" value="test-exchange"/>
+        <param name="type" value="direct"/>
+        <param name="durable" value="false"/>
+        <param name="routingKey" value=""/>
+        <layout class="com.kharevich.layout.JSONLayout" />
+    </appender>
 
-    <appender name="amqp" class="org.springframework.amqp.rabbit.log4j.AmqpAppender">
-        <param name="ExchangeName" value="app.log4.spring" />
+    <appender name="amqp"
+              class="org.springframework.amqp.rabbit.log4j.AmqpAppender">
+        <param name="host" value="owl.rmq.cloudamqp.com" />
+        <!--<param name="virtualHost" value="dlxydxgl" />-->
+        <!--<param name="username" value="dlxydxgl" />-->
+        <!--<param name="password" value="SgdkW4FVgeF8YF1rA_edxYSWq3zQmoIO" />-->
+        <!--<param name="ExchangeName" value="app.log4.spring" />-->
         <param name="ExchangeType" value="topic" />
-        <param name="declareExchange" value="true" />
+        <!--<param name="declareExchange" value="true" />-->
         <param name="RoutingKeyPattern" value="log.logsee" />
-        <param name="ApplicationId" value="spring-travel" />
+        <param name="ApplicationId" value="main" />
+        <param name="contentType" value="text/plain" />
+        <param name="senderPoolSize" value="2" />
+        <param name="maxSenderRetries" value="30" />
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%-5p %c{1} - %m%n" />
         </layout>
     </appender>
+
+    <!--<appender name="amqp" class="org.springframework.amqp.rabbit.log4j.AmqpAppender">-->
+        <!--<param name="ExchangeName" value="app.log4.spring" />-->
+        <!--<param name="ExchangeType" value="topic" />-->
+        <!--<param name="declareExchange" value="true" />-->
+        <!--<param name="RoutingKeyPattern" value="log.logsee" />-->
+        <!--<param name="ApplicationId" value="spring-travel" />-->
+        <!--<layout class="org.apache.log4j.PatternLayout">-->
+            <!--<param name="ConversionPattern" value="%-5p %c{1} - %m%n" />-->
+        <!--</layout>-->
+    <!--</appender>-->
     <root>
-        <level value="ERROR"/>
+        <level value="INFO"/>
         <appender-ref ref="rabbitmq"/>
         <appender-ref ref="console"/>
-        <!--<appender-ref ref="amqp"/>-->
+        <appender-ref ref="amqp-spring"/>
     </root>
 </log4j:configuration>
