@@ -1,4 +1,4 @@
-package com.kharevich.component;
+package com.kharevich.appender;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -28,7 +28,6 @@ import java.util.concurrent.TimeoutException;
 /**
  * Created by zeremit on 15.6.15.
  */
-@Component
 public class RabbitMQCFAppender extends AppenderSkeleton{
 
     private static final String LOG_APMQ_SERVICE_NAME = "log_service";

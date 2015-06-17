@@ -1,4 +1,4 @@
-package com.kharevich.component;
+package com.kharevich.appender;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -42,7 +42,6 @@ import java.util.concurrent.TimeoutException;
  A Log4j appender that publishes messages to a RabbitMQ exchange/queue.
 
  */
-@Component
 public class RabbitMQAppender extends AppenderSkeleton {
 
     private ConnectionFactory factory = new ConnectionFactory();

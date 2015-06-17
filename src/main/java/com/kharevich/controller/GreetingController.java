@@ -2,12 +2,8 @@ package com.kharevich.controller;
 
 import com.kharevich.bean.Greeting;
 import com.kharevich.component.EnvironmentComponent;
-import com.kharevich.component.RabbitMQAppender;
-import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.apache.log4j.Logger;
-import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.Cloud;
 import org.springframework.cloud.CloudFactory;
 import org.springframework.web.bind.annotation.*;
 

@@ -20,28 +20,23 @@
 	<mvc:annotation-driven />
 	<!--<context:annotation-config/>-->
 
-	<!--<bean-->
-		<!--class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-		<!--<property name="prefix">-->
-			<!--<value>/WEB-INF/pages/</value>-->
-		<!--</property>-->
-		<!--<property name="suffix">-->
-			<!--<value>.jsp</value>-->
-		<!--</property>-->
-	<!--</bean>-->
+	<bean id="propertyPlaceholderConfigurer"
+		  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+		<property name="searchSystemEnvironment" value="true" />
+	</bean>
 	<!-- Obtain a connection to the RabbitMQ via cloudfoundry-runtime: -->
-	<!--<cloud:rabbit-connection-factory id="connectionFactory"/>-->
+	<cloud:rabbit-connection-factory service-name="${log_service}" id="connectionFactory"/>
 
-	<!--&lt;!&ndash; Set up the AmqpTemplate/RabbitTemplate: &ndash;&gt;-->
-	<!--<rabbit:template id="amqpTemplate" connection-factory="connectionFactory"/>-->
+	<!-- Set up the AmqpTemplate/RabbitTemplate: -->
+	<rabbit:template id="amqpTemplate" connection-factory="connectionFactory"/>
 
-	<!--&lt;!&ndash; Request that queues, exchanges and bindings be automatically-->
-         <!--declared on the broker: &ndash;&gt;-->
-	<!--<rabbit:admin connection-factory="connectionFactory"/>-->
+	<!-- Request that queues, exchanges and bindings be automatically
+         declared on the broker: -->
+	<rabbit:admin connection-factory="connectionFactory"/>
 
-	<!--&lt;!&ndash; Declare the "messages" queue: &ndash;&gt;-->
-	<!--<rabbit:queue name="messages" durable="true"/>-->
-
+	<!-- Declare the "messages" queue: -->
+	<rabbit:queue name="messages" durable="true"/>
 </beans>
 
 
