@@ -12,4 +12,4 @@ applications:
      password: password
      log_service: rabbitmq-spring
   services:
-     - spring-rabbitmq
+     - rabbitmq-spring
