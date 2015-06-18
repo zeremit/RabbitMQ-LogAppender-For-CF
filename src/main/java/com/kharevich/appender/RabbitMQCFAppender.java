@@ -25,9 +25,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeoutException;
 
-/**
- * Created by zeremit on 15.6.15.
- */
 public class RabbitMQCFAppender extends AppenderSkeleton{
 
     private static final String LOG_APMQ_SERVICE_NAME = "log_service";
@@ -101,7 +98,6 @@ public class RabbitMQCFAppender extends AppenderSkeleton{
      */
     @Override
     protected void append(LoggingEvent loggingEvent) {
-        System.out.println(loggingEvent.getMessage());
         if ( isAsSevereAsThreshold(loggingEvent.getLevel())) {
             threadPool.submit( new AppenderTask(loggingEvent) );
         }
