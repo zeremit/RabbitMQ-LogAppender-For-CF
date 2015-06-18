@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
-    <appender name="rabbitmq" class="com.kharevich.component.RabbitMQAppender">
+    <appender name="rabbitmq" class="com.kharevich.appender.RabbitMQAppender">
         <param name="identifier" value="identifier"/>
         <param name="exchange" value="log4j-exchange"/>
         <param name="type" value="direct"/>
@@ -16,7 +16,7 @@
             <param name="ConversionPattern" value="%-5p: %c - %m%n" />
         </layout>
     </appender>
-    <appender name="amqp-spring" class="com.kharevich.component.RabbitMQCFAppender">
+    <appender name="amqp-cf" class="com.kharevich.appender.RabbitMQCFAppender">
         <param name="identifier" value="identifier"/>
         <param name="exchange" value="test-exchange"/>
         <param name="type" value="direct"/>
@@ -25,25 +25,39 @@
         <layout class="com.kharevich.layout.JSONLayout" />
     </appender>
 
-    <appender name="amqp"
-              class="org.springframework.amqp.rabbit.log4j.AmqpAppender">
-        <param name="host" value="owl.rmq.cloudamqp.com" />
+    <!--<appender name="amqp"-->
+              <!--class="org.springframework.amqp.rabbit.log4j.AmqpAppender">-->
+        <!--<param name="host" value="owl.rmq.cloudamqp.com" />-->
+        <!--<param name="ExchangeType" value="topic" />-->
+        <!--<param name="RoutingKeyPattern" value="log.logsee" />-->
+        <!--<param name="ApplicationId" value="main" />-->
+        <!--<param name="contentType" value="text/plain" />-->
+        <!--<param name="senderPoolSize" value="2" />-->
+        <!--<param name="maxSenderRetries" value="30" />-->
+        <!--<layout class="org.apache.log4j.PatternLayout">-->
+            <!--<param name="ConversionPattern" value="%-5p %c{1} - %m%n" />-->
+        <!--</layout>-->
+    <!--</appender>-->
+
+    <!--<appender name="amqp"-->
+              <!--class="org.springframework.amqp.rabbit.log4j.AmqpAppender">-->
+        <!--<param name="host" value="owl.rmq.cloudamqp.com" />-->
+        <!--<param name="port" value="5672" />-->
         <!--<param name="virtualHost" value="dlxydxgl" />-->
         <!--<param name="username" value="dlxydxgl" />-->
         <!--<param name="password" value="SgdkW4FVgeF8YF1rA_edxYSWq3zQmoIO" />-->
         <!--<param name="ExchangeName" value="app.log4.spring" />-->
-        <param name="ExchangeType" value="topic" />
+        <!--<param name="ExchangeType" value="topic" />-->
         <!--<param name="declareExchange" value="true" />-->
-        <param name="RoutingKeyPattern" value="log.logsee" />
-        <param name="ApplicationId" value="main" />
-        <param name="contentType" value="text/plain" />
-        <param name="senderPoolSize" value="2" />
-        <param name="maxSenderRetries" value="30" />
-        <layout class="org.apache.log4j.PatternLayout">
-            <param name="ConversionPattern" value="%-5p %c{1} - %m%n" />
-        </layout>
-    </appender>
-
+        <!--<param name="RoutingKeyPattern" value="log.logsee" />-->
+        <!--<param name="ApplicationId" value="main" />-->
+        <!--<param name="contentType" value="text/plain" />-->
+        <!--<param name="senderPoolSize" value="2" />-->
+        <!--<param name="maxSenderRetries" value="30" />-->
+        <!--<layout class="org.apache.log4j.PatternLayout">-->
+            <!--<param name="ConversionPattern" value="%-5p %c{1} - %m%n" />-->
+        <!--</layout>-->
+    <!--</appender>-->
     <!--<appender name="amqp" class="org.springframework.amqp.rabbit.log4j.AmqpAppender">-->
         <!--<param name="ExchangeName" value="app.log4.spring" />-->
         <!--<param name="ExchangeType" value="topic" />-->
@@ -55,9 +69,9 @@
         <!--</layout>-->
     <!--</appender>-->
     <root>
-        <level value="INFO"/>
+        <level value="ERROR"/>
         <appender-ref ref="rabbitmq"/>
         <appender-ref ref="console"/>
-        <appender-ref ref="amqp-spring"/>
+        <appender-ref ref="amqp-cf"/>
     </root>
 </log4j:configuration>
