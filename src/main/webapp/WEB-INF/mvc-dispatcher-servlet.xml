@@ -20,13 +20,13 @@
 	<mvc:annotation-driven />
 	<!--<context:annotation-config/>-->
 
-	<bean id="propertyPlaceholderConfigurer"
-		  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
-		<property name="searchSystemEnvironment" value="true" />
-	</bean>
+	<!--<bean id="propertyPlaceholderConfigurer"-->
+		  <!--class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+		<!--<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />-->
+		<!--<property name="searchSystemEnvironment" value="true" />-->
+	<!--</bean>-->
 	<!-- Obtain a connection to the RabbitMQ via cloudfoundry-runtime: -->
-	<cloud:rabbit-connection-factory service-name="${log_service}" id="connectionFactory"/>
+	<cloud:rabbit-connection-factory id="connectionFactory"/>
 
 	<!-- Set up the AmqpTemplate/RabbitTemplate: -->
 	<rabbit:template id="amqpTemplate" connection-factory="connectionFactory"/>
