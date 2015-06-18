@@ -1,1 +1,1 @@
-# spring-environment-variables
+# RabbitMQ LogAppender for CF
