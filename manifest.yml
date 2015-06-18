@@ -1,6 +1,6 @@
 ---
 applications:
-- name: zeremit
+- name: log-demo
   memory: 512M
   instances: 1
   path: target/spring-envoronment-variables.war
@@ -12,5 +12,4 @@ applications:
      password: password
      log_service: rabbitmq-spring
   services:
-     - rabbitmq-spring
-     - rabbitmq
+     - spring-rabbitmq
