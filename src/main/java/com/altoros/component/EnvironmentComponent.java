@@ -1,4 +1,4 @@
-package com.kharevich.component;
+package com.altoros.component;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;

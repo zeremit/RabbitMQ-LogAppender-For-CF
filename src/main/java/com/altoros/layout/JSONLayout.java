@@ -1,4 +1,4 @@
-package com.kharevich.layout;
+package com.altoros.layout;
 
 import org.apache.log4j.Layout;
 import org.apache.log4j.spi.LoggingEvent;

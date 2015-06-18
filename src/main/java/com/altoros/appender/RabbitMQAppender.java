@@ -1,4 +1,4 @@
-package com.kharevich.appender;
+package com.altoros.appender;
 
 import com.rabbitmq.client.AMQP;
 import com.rabbitmq.client.Channel;
@@ -7,8 +7,6 @@ import com.rabbitmq.client.ConnectionFactory;
 import org.apache.log4j.AppenderSkeleton;
 import org.apache.log4j.spi.ErrorCode;
 import org.apache.log4j.spi.LoggingEvent;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.concurrent.Callable;

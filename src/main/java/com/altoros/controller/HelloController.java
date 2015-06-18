@@ -1,7 +1,7 @@
-package com.kharevich.controller;
+package com.altoros.controller;
 
-import com.kharevich.bean.Greeting;
-import com.kharevich.component.EnvironmentComponent;
+import com.altoros.bean.Greeting;
+import com.altoros.component.EnvironmentComponent;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

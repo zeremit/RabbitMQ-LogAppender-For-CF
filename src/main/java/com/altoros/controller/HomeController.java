@@ -1,8 +1,7 @@
-package com.kharevich.controller;
+package com.altoros.controller;
 
-import com.kharevich.bean.Message;
+import com.altoros.bean.Message;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

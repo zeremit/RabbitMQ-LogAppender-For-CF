@@ -1,4 +1,4 @@
-package com.kharevich.bean;
+package com.altoros.bean;
 
 public class Greeting {
 
