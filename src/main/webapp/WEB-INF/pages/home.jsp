@@ -29,10 +29,18 @@
 
     <c:choose>
       <c:when test="${got_queue_empty}">
-        <p>Queue empty</p>
+        <p><b>com.altoros.appender.RabbitMQAppender</b> Queue empty</p>
       </c:when>
       <c:when test="${got != null}">
-        <p>Got message: <c:out value="${got}"/></p>
+        <p><b>com.altoros.appender.RabbitMQAppender</b> message: <c:out value="${got}"/></p>
+      </c:when>
+    </c:choose>
+    <c:choose>
+      <c:when test="${got_queue_empty_cf}">
+        <p><b>com.altoros.appender.RabbitMQCFAppender</b> Queue empty</p>
+      </c:when>
+      <c:when test="${got_cf != null}">
+        <p><b>com.altoros.appender.RabbitMQCFAppender</b> message: <c:out value="${got_cf}"/></p>
       </c:when>
     </c:choose>
   </body>

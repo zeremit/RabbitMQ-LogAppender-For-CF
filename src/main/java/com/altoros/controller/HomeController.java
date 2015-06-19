@@ -35,10 +35,16 @@ public class HomeController {
     public String get(Model model) {
         // Receive a message from the "messages" queue
         String message = (String)amqpTemplate.receiveAndConvert("amqp-queue");
+        String messageCF = (String)amqpTemplate.receiveAndConvert("log4j-queue");
         if (message != null)
             model.addAttribute("got", message);
         else
             model.addAttribute("got_queue_empty", true);
+        if (messageCF != null)
+            model.addAttribute("got_cf", messageCF);
+        else
+            model.addAttribute("got_queue_empty_cf", true);
+
 
         return home(model);
     }
